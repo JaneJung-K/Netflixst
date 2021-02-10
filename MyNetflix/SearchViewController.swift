@@ -1,5 +1,6 @@
 
 import UIKit
+import Kingfisher
 
 class SearchViewController: UIViewController {
     
@@ -29,6 +30,10 @@ extension SearchViewController: UICollectionViewDataSource {
                 ResultCell else {
             return UICollectionViewCell()
         }
+        
+        let movie = movies[indexPath.item]
+        let url = URL(string: movie.thumbnailPath)!
+        cell.movieThumbnail.kf.setImage(with: url)
         
         cell.backgroundColor = .red
         return cell
@@ -76,14 +81,17 @@ extension SearchViewController: UISearchBarDelegate {
         // - 목표: 서치텀을 가지고 네트워킹을 통해서 영화 검색
         // - [x] 검색API 가 필요
         // - [x] 결과를 받아올 모델 Movie, Respone
-        // - 결과를 받아와서, CollectionView로 표현해주자
+        // - [x] 결과를 받아와서, CollectionView로 표현해주자
         
         SearchAPI.search(searchTerm) { movies in
-            //collectionView로 표현하기
+            // - [x] collectionView로 표현하기
             print("--> 몇개 넘어왔어?? \(movies.count), 첫번째꺼 제목: \(movies.first?.title)")
+            DispatchQueue.main.async {
+                self.movies = movies
+                self.resultCollectionView.reloadData()
+            }
             
-            self.movies = movies
-            self.resultCollectionView.reloadData()
+            
             
         }
         
