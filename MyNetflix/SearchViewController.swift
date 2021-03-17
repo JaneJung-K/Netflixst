@@ -38,7 +38,8 @@ extension SearchViewController: UICollectionViewDataSource {
         let url = URL(string: movie.thumbnailPath)!
         cell.movieThumbnail.kf.setImage(with: url)
         
-        cell.backgroundColor = .red
+        cell.backgroundColor = .black
+    
         return cell
     }
 

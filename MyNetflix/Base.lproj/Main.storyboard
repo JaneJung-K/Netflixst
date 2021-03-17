@@ -291,18 +291,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="86" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZmS-RJ-2Zt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZmS-RJ-2Zt">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistryCell" rowHeight="86" id="rg1-3d-iK0" customClass="HistoryCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryCell" rowHeight="86" id="rg1-3d-iK0" customClass="HistoryCell" customModule="MyNetflix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rg1-3d-iK0" id="EeW-Q0-z6f">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djd-Wf-Ocr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZO-1X-nkN">
                                                     <rect key="frame" x="20" y="32.5" width="54.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -310,15 +310,19 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Djd-Wf-Ocr" firstAttribute="centerY" secondItem="EeW-Q0-z6f" secondAttribute="centerY" id="KXV-DZ-Ygq"/>
-                                                <constraint firstItem="Djd-Wf-Ocr" firstAttribute="leading" secondItem="EeW-Q0-z6f" secondAttribute="leading" constant="20" symbolic="YES" id="uoq-9E-lEQ"/>
+                                                <constraint firstItem="hZO-1X-nkN" firstAttribute="leading" secondItem="EeW-Q0-z6f" secondAttribute="leading" constant="20" symbolic="YES" id="JQo-Zh-v2f"/>
+                                                <constraint firstItem="hZO-1X-nkN" firstAttribute="centerY" secondItem="EeW-Q0-z6f" secondAttribute="centerY" id="WiO-pA-Pt0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="searchTerm" destination="Djd-Wf-Ocr" id="C2f-9S-nBw"/>
+                                            <outlet property="searchTerm" destination="hZO-1X-nkN" id="U1e-9B-fCl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="0DL-kq-S35" id="blY-Dv-GKR"/>
+                                    <outlet property="delegate" destination="0DL-kq-S35" id="l8C-Jg-jT4"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OYX-Ro-fRu"/>
